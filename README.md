@@ -1,16 +1,28 @@
 
 ## Wut?
 
-This is an attempt to use [Tailwind UI](tailwindui.com), a set of UI components by the authors of [Tailwind CSS](taillwindcss.com) people.
+This is an attempt to use [Tailwind UI](http://tailwindui.com), a set of UI components by the authors of [Tailwind CSS](http://tailwindcss.com) people.
 
-Components are for pay, I've a licence so you can browser [here](https://bluesquare.1password.com/vaults/dnrtxul33sdl2cybttuxvv3g7a/allitems/ahag75vzk4a5kuslhv2gikl2r4/) - this comes with a licence so don't put that in a public repo!
+The library is free but the components are not, I've a licence so you can browse them [here](https://bluesquare.1password.com/vaults/dnrtxul33sdl2cybttuxvv3g7a/allitems/ahag75vzk4a5kuslhv2gikl2r4/) - this comes with a licence so don't put that in a public repo!
 
-I've played a bit with the config so that we can use the tailwind components here (using PostCSS and some other stuff).
+I've played a bit with the config so that we can use the tailwind components here in React (using PostCSS and some other stuff).
 
 Main experience is to see how easy/complex it is to use them inside react (Tailwind UI components are "just HTML with classes") - mostly, copy/paste, replace ´class´ with ´className´ and remove AlpineJS tags (anything inside an element that starts with @) -> done.
 
 I've made some test at extracting components, and getting props instead of fixed value, and this seems to work well - have a look at Layout for this.
 
+### Why?
+
+I like component library as they are a good way to 
+
+* Win time on development
+* Have a default (good) level for everything
+
+The polish seems to be good here and while this is not material UI (ie: look is a bit different) it's not widely different either. With the team being skewed toward backend, this could be a good way to help deploy good quality front ends.
+
+### What now?
+
+I'd like to test this on a single project, unrelated to our current products. Good thing is I've one nearyby (small DHIS2 app for Morocco) that could fit the bill. If the experience is positive, we can see for others.
 
 ## CRA stuff
 
