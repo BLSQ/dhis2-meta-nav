@@ -1,3 +1,19 @@
+
+## Wut?
+
+This is an attempt to use [Tailwind UI](tailwindui.com), a set of UI components by the authors of [Tailwind CSS](taillwindcss.com) people.
+
+Components are for pay, I've a licence so you can browser [here](https://bluesquare.1password.com/vaults/dnrtxul33sdl2cybttuxvv3g7a/allitems/ahag75vzk4a5kuslhv2gikl2r4/) - this comes with a licence so don't put that in a public repo!
+
+I've played a bit with the config so that we can use the tailwind components here (using PostCSS and some other stuff).
+
+Main experience is to see how easy/complex it is to use them inside react (Tailwind UI components are "just HTML with classes") - mostly, copy/paste, replace ´class´ with ´className´ and remove AlpineJS tags (anything inside an element that starts with @) -> done.
+
+I've made some test at extracting components, and getting props instead of fixed value, and this seems to work well - have a look at Layout for this.
+
+
+## CRA stuff
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
