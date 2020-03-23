@@ -4,6 +4,7 @@ import Api from "../lib/Api"
 import Pagination from "./Pagination"
 import { Link } from 'react-router-dom';
 import qs from "qs";
+import DateHelper from "../lib/DateHelper";
 
 let renderEmpty = () => {
   return (null);
@@ -14,26 +15,24 @@ let renderRows = (rows, modelName) => {
     let url = `${modelName}/${row.id}`;
     elements.push(
       <tr key={row.id}>
+      <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+        {row.id}
+      </td>
       <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
         <div className="flex items-center">
-          <div className="ml-4">
+          <div>
             <div className="text-sm leading-5 font-medium text-gray-900">{row.displayName}</div>
             <div className="text-sm leading-5 text-gray-500">{row.description ? row.description.slice(0,100) : null}</div>
           </div>
         </div>
       </td>
       <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-        <div className="text-sm leading-5 text-gray-900">Director</div>
-        <div className="text-sm leading-5 text-gray-500">Human Resources</div>
+          {DateHelper.time_ago_in_words_with_parsing(row.created)} ago
       </td>
       <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-          Active
-        </span>
+          {DateHelper.time_ago_in_words_with_parsing(row.lastUpdated)} ago
       </td>
-      <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-        Owner
-      </td>
+
       <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
         <Link to={url} className="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline">Details</Link>
       </td>
@@ -77,16 +76,16 @@ function Collection(props) {
               <thead>
                 <tr>
                   <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                    Id
+                  </th>
+                  <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                     Name
                   </th>
                   <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Title
+                    Created
                   </th>
                   <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Role
+                    Last updated
                   </th>
                   <th className="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                 </tr>

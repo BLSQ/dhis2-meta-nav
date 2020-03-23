@@ -2,23 +2,41 @@ import React from "react";
 import { useLocation } from "react-router";
 import { Link } from 'react-router-dom';
 
+
 export default function Pagination(props) {
-  let pager = props.pager
   let location = useLocation();
+  
+  function getButton(page, active) {
+    let url = location.pathname + "?page=" + page;
+    if (active) {
+      return (
+        <Link to={url} className="-mt-px border-t-2 border-indigo-500 pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700 transition ease-in-out duration-150">
+          {page}
+        </Link>
+      )
+    } else {
+      return (
+        <Link to={url} className="-mt-px border-t-2 border-transparent pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400 transition ease-in-out duration-150">
+          {page}
+        </Link>
+      )
+    }
+  }
 
-  console.log(location);
-
+  let pager = props.pager
   if (pager == null) {
     return null;
   }
 
-  
   let currentPage = pager.page;
-  let lastPage = Number(pager.pageCount);
-  let secondToLastPage = lastPage - 1;
-  
-  let previousUrl = location.pathname + "?page=" + (currentPage-1);
-  let nextUrl = location.pathname + "?page=" + (currentPage+1);
+  let lastPage = pager.pageCount;
+
+  let previousUrl = location.pathname + "?page=" + (currentPage - 1);
+  let nextUrl = location.pathname + "?page=" + (currentPage + 1);
+
+  let currentPageButton = (currentPage > 2 && currentPage < lastPage  - 1) ? <>{getButton(currentPage, true)}<span className="-mt-px border-t-2 border-transparent pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-gray-500">
+      ...
+      </span></> : null
 
   let previous = pager.prevPage !== undefined ?
     <Link to={previousUrl} className="-mt-px border-t-2 border-transparent pt-4 pr-1 inline-flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400 transition ease-in-out duration-150">
@@ -36,31 +54,19 @@ export default function Pagination(props) {
     </svg>
   </Link> : null;
 
-  
-
   return (<div className="border-t border-gray-200 px-4 flex items-center justify-between sm:px-0">
     <div className="w-0 flex-1 flex">
       {previous}
     </div>
     <div className="hidden md:flex">
-      <a href="#" className="-mt-px border-t-2 border-transparent pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400 transition ease-in-out duration-150">
-        1
-      </a>
-      <a href="#" className="-mt-px border-t-2 border-indigo-500 pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700 transition ease-in-out duration-150">
-        2
-      </a>
-      <a href="#" className="-mt-px border-t-2 border-transparent pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400 transition ease-in-out duration-150">
-        3
-      </a>
+      {getButton(1, currentPage == 1)}
+      {getButton(2, currentPage == 2)}
       <span className="-mt-px border-t-2 border-transparent pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-gray-500">
         ...
       </span>
-      <a href="#" className="-mt-px border-t-2 border-transparent pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400 transition ease-in-out duration-150">
-        {secondToLastPage}
-      </a>
-      <a href="#" className="-mt-px border-t-2 border-transparent pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400 transition ease-in-out duration-150">
-        {lastPage}
-      </a>
+      {currentPageButton}
+      {getButton(lastPage - 1, lastPage - 1 == currentPage)}
+      {getButton(lastPage, lastPage == currentPage)}
     </div>
     <div className="w-0 flex-1 flex justify-end">
       {next}

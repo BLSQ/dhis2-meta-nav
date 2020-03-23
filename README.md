@@ -11,13 +11,17 @@ For now, just showing the meta categories, a first screen about a list and a fir
 
 ## Todo
 
-- [Collection] Actual pagination working 
-- [Collection] Proper columns 
-- [Collection] Search/Filter 
-- [Sidebar] Filters or move to a two level top bar  
-- [Item] List of fields
-- [Item] Links
-- [Item] Detailed cells for specific types of values
+- [X] [Collection] Actual pagination working 
+- [X] [Collection] Proper columns 
+- [ ] [Item] List of fields
+- [ ] [Item] Links
+
+## Later
+
+- [ ] [Item] Detailed cells for specific types of values
+- [ ] [Collection] Search/Filter 
+- [ ] [Collection] Customize columns to show 
+- [ ] [Sidebar] Filters or move to a two level top bar  
 
 ## CRA stuff
 
