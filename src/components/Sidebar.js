@@ -25,7 +25,7 @@ function renderSection(section, models) {
         header={true}
       >
         <svg className="mr-3 h-6 w-6 text-indigo-400 group-focus:text-indigo-300 transition ease-in-out duration-150" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10M9 21h6" />
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
         </svg>
       </SidebarLink>
       {elements}
@@ -45,7 +45,7 @@ function Sidebar(props) {
           <img className="h-8 w-auto" src="/img/hesabu-h.png" alt="Hesabu" />
         </div>
         <div className="mt-5 h-0 flex-1 flex flex-col overflow-y-auto">
-          <nav className="flex-1 px-2 bg-indigo-800">
+          <nav className="flex-1 bg-indigo-800">
             {sections}
           </nav>
         </div>

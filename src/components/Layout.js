@@ -19,11 +19,11 @@ function Layout() {
             path={'/'}
             render={() => <Home />}
           />
-          {/* <Route
-                exact
-                path={'/collection/:sectionname/:modelname/:id'}
-                component={Item}
-              />*/}
+          <Route
+            exact
+            path={'/collection/:sectionname/:modelname/:id'}
+            component={Item}
+          />
           <Route
             exact
             path={'/collection/:sectionname/:modelname'}
