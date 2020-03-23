@@ -3,6 +3,7 @@ import Home from "./Home"
 import Search from "./Search"
 import Sidebar from "./Sidebar"
 import Collection from "./Collection"
+import Item from "./Item"
 import { SECTIONS } from '../lib/Api';
 import { Route, Switch } from 'react-router-dom';
 

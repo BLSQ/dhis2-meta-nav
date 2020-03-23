@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import { humanize } from "../lib/Utils"
 import Api from "../lib/Api"
 import Pagination from "./Pagination"
+import { Link } from 'react-router-dom';
+import qs from "qs";
 
 let renderEmpty = () => {
   return (null);
 }
-let renderRows = (rows) => {
+let renderRows = (rows, modelName) => {
   let elements = [];
   rows.forEach(row => {
+    let url = `${modelName}/${row.id}`;
     elements.push(
       <tr key={row.id}>
       <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -32,7 +35,7 @@ let renderRows = (rows) => {
         Owner
       </td>
       <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-        <a href="#" className="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline">Edit</a>
+        <Link to={url} className="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline">Details</Link>
       </td>
     </tr>
     );
@@ -45,17 +48,20 @@ function Collection(props) {
   const [pager, setPager] = useState(null);
 
   let modelName = props.match.params.modelname;
-  let sectionName = props.match.params.sectionname;
+  let currentPage = qs.parse(props.location.search, { ignoreQueryPrefix: true }).page
+  currentPage = currentPage === undefined ? 1 : Number(currentPage)
 
   useEffect(() => {
-    Api.getAny(modelName).then(data => {
+    setRows([]);
+    setPager(null);
+    Api.getAny(modelName, { page: currentPage, paging: true, filter: null }).then(data => {
       let allRows = [];
       data.forEach(item => allRows.push(item));
       console.log(data)
       setPager(data.pager);
       setRows(allRows);
     });
-  }, []);
+  }, [props.location]);
 
 
 
@@ -86,7 +92,7 @@ function Collection(props) {
                 </tr>
               </thead>
               <tbody className="bg-white">
-                { (rows && rows.length > 0) ? renderRows(rows) : renderEmpty() }
+                { (rows && rows.length > 0) ? renderRows(rows, modelName) : renderEmpty() }
               </tbody>
             </table>
           </div>

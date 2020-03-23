@@ -1,28 +1,23 @@
 
-## Wut?
+## What is this?
 
-This is an attempt to use [Tailwind UI](http://tailwindui.com), a set of UI components by the authors of [Tailwind CSS](http://tailwindcss.com) people.
+This is a rework of my former "meta data navigator" DHIS2 app - an application to easily search & navigate meta data, accessible to non administrators.
 
-The library is free but the components are not, I've a licence so you can browse them [here](https://bluesquare.1password.com/vaults/dnrtxul33sdl2cybttuxvv3g7a/allitems/ahag75vzk4a5kuslhv2gikl2r4/) - this comes with a licence so don't put that in a public repo!
+It's using Tailwind for the CSS and React hooks for fun.
 
-I've played a bit with the config so that we can use the tailwind components here in React (using PostCSS and some other stuff).
+## What does it do?
 
-Main experience is to see how easy/complex it is to use them inside react (Tailwind UI components are "just HTML with classes") - mostly, copy/paste, replace ´class´ with ´className´ and remove AlpineJS tags (anything inside an element that starts with @) -> done.
+For now, just showing the meta categories, a first screen about a list and a first individual screen. See todo section below.
 
-I've made some test at extracting components, and getting props instead of fixed value, and this seems to work well - have a look at Layout for this.
+## Todo
 
-### Why?
-
-I like component library as they are a good way to 
-
-* Win time on development
-* Have a default (good) level for everything
-
-The polish seems to be good here and while this is not material UI (ie: look is a bit different) it's not widely different either. With the team being skewed toward backend, this could be a good way to help deploy good quality front ends.
-
-### What now?
-
-I'd like to test this on a single project, unrelated to our current products. Good thing is I've one nearyby (small DHIS2 app for Morocco) that could fit the bill. If the experience is positive, we can see for others.
+- [Collection] Actual pagination working 
+- [Collection] Proper columns 
+- [Collection] Search/Filter 
+- [Sidebar] Filters or move to a two level top bar  
+- [Item] List of fields
+- [Item] Links
+- [Item] Detailed cells for specific types of values
 
 ## CRA stuff
 

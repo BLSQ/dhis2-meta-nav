@@ -119,7 +119,7 @@ class Api {
     );
   }
 
-  getAny(type, params = { paging: true, filter: null }) {
+  getAny(type, params = { paging: true, filter: null, page: 1 }) {
     if (
       params.filter !== undefined &&
       params.filter !== null &&
@@ -136,7 +136,7 @@ class Api {
       );
     else {
       return getInstance().then(d2 =>
-        d2.models[type].list({ fields: ':all', paging: params.paging })
+        d2.models[type].list({ fields: ':all', paging: params.paging, page: params.page })
       );
     }
   }
