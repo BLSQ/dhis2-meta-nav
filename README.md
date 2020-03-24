@@ -1,4 +1,3 @@
-
 ## What is this?
 
 This is a rework of my former "meta data navigator" DHIS2 app - an application to easily search & navigate meta data, accessible to non administrators.
@@ -11,17 +10,19 @@ For now, just showing the meta categories, a first screen about a list and a fir
 
 ## Todo
 
-- [X] [Collection] Actual pagination working 
-- [X] [Collection] Proper columns 
-- [ ] [Item] List of fields
+- [x] [Collection] Actual pagination working
+- [x] [Collection] Proper columns
+- [x] [Item] List of fields
 - [ ] [Item] Links
 
 ## Later
 
+- [ ] [Top bar] Back to DHIS2
+- [ ] [Collection] Search on name
 - [ ] [Item] Detailed cells for specific types of values
-- [ ] [Collection] Search/Filter 
-- [ ] [Collection] Customize columns to show 
-- [ ] [Sidebar] Filters or move to a two level top bar  
+- [ ] [Collection] Search/Filter
+- [ ] [Collection] Customize columns to show
+- [ ] [Sidebar] Filters or move to a two level top bar
 
 ## CRA stuff
 
